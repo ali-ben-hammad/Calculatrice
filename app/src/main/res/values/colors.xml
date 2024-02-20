@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- functional colors -->
+    <color name="f_bg">#FF5722</color>
+    <color name="f_text">#DAEFFF</color>
+
+    <color name="n_bg">#383838</color>
+    <color name="n_text">#DAEFFF</color>
+
+    <color name="result">#BE44FF</color>
+
+
+
+</resources>

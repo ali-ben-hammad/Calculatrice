@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="custom">
+        <item name="marginHorizontal">50dp</item>
+        <item name="borderRound">@dimen/cardview_default_radius</item>
+        <item name="color">@color/black</item>
+    </style>
+
+    <style name="button_f">
+
+        <item name="android:textColor">@color/f_text</item>
+        <item name="android:textSize">40sp</item>
+
+
+        <item name="flow_horizontalGap">@dimen/cardview_default_radius</item>
+        <item name="android:background">@drawable/button_f</item>
+    </style>
+    <style name="button_n">
+        <item name="android:background">@drawable/button_n</item>
+        <item name="android:textColor">@color/n_text</item>
+        <item name="android:textSize">40sp</item>
+
+    </style>
+</resources>
