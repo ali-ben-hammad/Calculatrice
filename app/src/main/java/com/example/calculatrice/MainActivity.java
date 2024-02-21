@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Append the clicked number to the inputEditText
-                    System.out.println("Button clicked");
                     Button button = (Button) v;
                     inputEditText.append(button.getText().toString());
                 }
@@ -120,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Clear the inputEditText
                 inputEditText.getText().clear();
+                // Clear the resultTextView
+                resultTextView.setText("0");
             }
         });
     }
@@ -127,12 +128,15 @@ public class MainActivity extends AppCompatActivity {
     private void calculate() {
         // Get the expression from the inputEditText
         Calculator.expression = inputEditText.getText().toString();
-
         // Clear the inputEditText
         // inputEditText.getText().clear();
         // Append the result to the inputEditText
         double result = calculator.calculateResult();
-        DecimalFormat decimalFormat = new DecimalFormat("#.######"); // Only 6 digits after decimal point
+        if(Double.isNaN(result)) {
+            resultTextView.setText("Error");
+            return;
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("#.#########"); // Only 6 digits after decimal point
         String formattedResult = decimalFormat.format(result);
         resultTextView.setText(formattedResult);
     }
