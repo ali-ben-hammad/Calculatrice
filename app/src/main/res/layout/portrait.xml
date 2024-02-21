@@ -16,6 +16,7 @@
         android:orientation="vertical"
         android:background="@color/black">
         <EditText
+            android:id="@+id/inputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1 + 2 + 3 + 4"
