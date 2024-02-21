@@ -19,7 +19,7 @@
             android:id="@+id/inputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1 + 2 + 3 + 4"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="35sp"
             android:gravity="top|end"
@@ -28,6 +28,7 @@
             android:layout_weight="2"
             />
         <TextView
+            android:id="@+id/resultText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="0"

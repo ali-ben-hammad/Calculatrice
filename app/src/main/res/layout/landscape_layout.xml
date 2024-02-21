@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-
     android:layout_weight="1"
+
     android:columnCount="8"
 
-    android:rowCount="6">
+    android:rowCount="4">
 
     <android.widget.Button
         android:id="@+id/btnC"
         style="@style/button_n"
-        android:layout_row="3"
-        android:layout_rowSpan="3"
-           android:layout_rowWeight="3"
+        android:layout_row="2"
+        android:layout_rowSpan="2"
+        android:layout_rowWeight="2"
         android:layout_column="7"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -24,9 +24,9 @@
         android:text="C" />
 
     <android.widget.Button
-        android:id="@+id/btnDevide"
+        android:id="@+id/btnDivide"
         style="@style/button_f"
-        android:layout_row="2"
+        android:layout_row="1"
       
         android:layout_column="7"
         android:layout_columnWeight="1"
@@ -37,8 +37,9 @@
     <android.widget.Button
         android:id="@+id/btnPercent"
         style="@style/button_f"
-        android:layout_row="1"
+        android:layout_row="0"
       
+
         android:layout_column="7"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -48,8 +49,9 @@
     <android.widget.Button
         android:id="@+id/btnMulitply"
         style="@style/button_f"
-        android:layout_row="1"
+        android:layout_row="0"
       
+
         android:layout_column="3"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -59,7 +61,7 @@
     <android.widget.Button
         android:id="@+id/btnSin"
         style="@style/button_f"
-        android:layout_row="2"
+        android:layout_row="1"
       
         android:layout_column="4"
 
@@ -72,8 +74,9 @@
     <android.widget.Button
         android:id="@+id/btn7"
         style="@style/button_n"
-        android:layout_row="1"
- 
+        android:layout_row="0"
+
+      
         android:layout_column="0"
         android:layout_columnWeight="1"
 
@@ -84,7 +87,8 @@
     <android.widget.Button
         android:id="@+id/btn8"
         style="@style/button_n"
-        android:layout_row="1"
+        android:layout_row="0"
+
       
         android:layout_column="1"
         android:layout_columnWeight="1"
@@ -96,8 +100,9 @@
     <android.widget.Button
         android:id="@+id/btn9"
         style="@style/button_n"
-        android:layout_row="1"
+        android:layout_row="0"
       
+
         android:layout_column="2"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -107,8 +112,9 @@
     <android.widget.Button
         android:id="@+id/btnCos"
         style="@style/button_f"
-        android:layout_row="1"
+        android:layout_row="0"
       
+
         android:layout_column="4"
         android:layout_columnSpan="2"
         android:layout_columnWeight="2"
@@ -120,8 +126,9 @@
     <android.widget.Button
         android:id="@+id/btnMinus"
         style="@style/button_f"
-        android:layout_row="2"
+        android:layout_row="1"
       
+
         android:layout_column="3"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -131,10 +138,10 @@
     <android.widget.Button
         android:id="@+id/btnTan"
         style="@style/button_f"
-        android:layout_row="3"
+        android:layout_row="2"
+
       
         android:layout_column="4"
-
         android:layout_columnSpan="2"
         android:layout_columnWeight="2"
         android:layout_margin="5dp"
@@ -144,7 +151,7 @@
     <android.widget.Button
         android:id="@+id/btn4"
         style="@style/button_n"
-        android:layout_row="2"
+        android:layout_row="1"
       
         android:layout_column="0"
         android:layout_columnWeight="1"
@@ -156,7 +163,7 @@
     <android.widget.Button
         android:id="@+id/btn5"
         style="@style/button_n"
-        android:layout_row="2"
+        android:layout_row="1"
       
         android:layout_column="1"
         android:layout_columnWeight="1"
@@ -168,8 +175,9 @@
     <android.widget.Button
         android:id="@+id/btn6"
         style="@style/button_n"
-        android:layout_row="2"
+        android:layout_row="1"
       
+
         android:layout_column="2"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -177,22 +185,10 @@
         android:text="6" />
 
     <android.widget.Button
-        android:id="@+id/btnExp"
-        style="@style/button_f"
-        android:layout_row="3"
-      
-        android:layout_column="6"
-        android:layout_columnWeight="1"
-        android:layout_margin="5dp"
-        android:onClick="onButtonClick"
-        android:text="exp" />
-
-    <android.widget.Button
         android:id="@+id/btnPlus"
         style="@style/button_f"
-        android:layout_row="3"
-        android:layout_rowSpan="2"
-        android:layout_rowWeight="2"
+        android:layout_row="2"
+      
         android:layout_column="3"
 
         android:layout_columnWeight="1"
@@ -203,8 +199,9 @@
     <android.widget.Button
         android:id="@+id/btnLn"
         style="@style/button_f"
-        android:layout_row="1"
+        android:layout_row="0"
       
+
         android:layout_column="6"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -214,7 +211,7 @@
     <android.widget.Button
         android:id="@+id/btn1"
         style="@style/button_n"
-        android:layout_row="3"
+        android:layout_row="2"
       
         android:layout_column="0"
         android:layout_columnWeight="1"
@@ -226,7 +223,7 @@
     <android.widget.Button
         android:id="@+id/btn2"
         style="@style/button_n"
-        android:layout_row="3"
+        android:layout_row="2"
       
         android:layout_column="1"
         android:layout_columnWeight="1"
@@ -238,7 +235,7 @@
     <android.widget.Button
         android:id="@+id/btn3"
         style="@style/button_n"
-        android:layout_row="3"
+        android:layout_row="2"
       
         android:layout_column="2"
         android:layout_columnWeight="1"
@@ -247,20 +244,9 @@
         android:text="3" />
 
     <android.widget.Button
-        android:id="@+id/btnPow"
-        style="@style/button_f"
-        android:layout_row="5"
-      
-        android:layout_column="3"
-        android:layout_columnWeight="1"
-        android:layout_margin="5dp"
-        android:onClick="onButtonClick"
-        android:text="x^y" />
-
-    <android.widget.Button
         android:id="@+id/btnSqrt"
         style="@style/button_f"
-        android:layout_row="2"
+        android:layout_row="1"
       
         android:layout_column="6"
         android:layout_columnWeight="1"
@@ -269,21 +255,11 @@
         android:text="√ " />
 
     <android.widget.Button
-        android:id="@+id/btnFact"
-        style="@style/button_f"
-        android:layout_row="5"
-      
-        android:layout_column="4"
-        android:layout_columnWeight="1"
-        android:layout_margin="5dp"
-        android:onClick="onButtonClick"
-        android:text="n!" />
-
-    <android.widget.Button
         android:id="@+id/btn0"
         style="@style/button_n"
-        android:layout_row="4"
+        android:layout_row="3"
       
+
         android:layout_column="0"
         android:layout_columnSpan="2"
         android:layout_columnWeight="2"
@@ -295,8 +271,9 @@
     <android.widget.Button
         android:id="@+id/btnDot"
         style="@style/button_n"
-        android:layout_row="4"
+        android:layout_row="3"
       
+
         android:layout_column="2"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
@@ -304,22 +281,11 @@
         android:text="." />
 
     <android.widget.Button
-        android:id="@+id/btnLog"
-        style="@style/button_f"
-        android:layout_row="4"
-      
-        android:layout_column="4"
-        android:layout_columnWeight="1"
-        android:layout_margin="5dp"
-        android:onClick="onButtonClick"
-        android:text="log" />
-
-    <android.widget.Button
         android:id="@+id/btnLeftParentheses"
         style="@style/button_f"
-        android:layout_row="4"
+        android:layout_row="3"
       
-        android:layout_column="5"
+        android:layout_column="3"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
@@ -328,9 +294,9 @@
     <android.widget.Button
         android:id="@+id/btnRightParentheses"
         style="@style/button_f"
-        android:layout_row="4"
+        android:layout_row="3"
       
-        android:layout_column="6"
+        android:layout_column="4"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
@@ -339,31 +305,18 @@
     <android.widget.Button
         android:id="@+id/btnPi"
         style="@style/button_f"
-        android:layout_row="5"
+        android:layout_row="2"
       
-        android:layout_column="0"
+        android:layout_column="6"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
         android:text="π" />
 
     <android.widget.Button
-        android:id="@+id/btnAns"
-        style="@style/button_f"
-        android:layout_row="5"
-      
-        android:layout_column="1"
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="1"
-
-        android:layout_margin="5dp"
-        android:onClick="onButtonClick"
-        android:text="ANS" />
-
-    <android.widget.Button
         android:id="@+id/btnEqual"
         style="@style/button_n"
-        android:layout_row="5"
+        android:layout_row="3"
       
         android:layout_column="5"
         android:layout_columnSpan="2"

@@ -12,9 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_weight="1"
 
         android:background="@color/black">
         <EditText
+            android:id="@+id/inputEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAlignment="textStart"
@@ -27,14 +29,15 @@
             android:layout_weight="1"
             />
         <TextView
+            android:id="@+id/resultText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="0"
             android:textColor="@color/white"
-            android:textSize="65sp"
+            android:textSize="55sp"
             android:gravity="center|start"
             android:paddingHorizontal="5dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_marginTop="4dp"/>
 
     </LinearLayout>
@@ -43,8 +46,8 @@
         layout="@layout/landscape_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-    />
+        android:layout_weight="4"
+        />
 
 
 

@@ -1,20 +1,28 @@
 package com.example.calculatrice;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.service.carrier.CarrierMessagingService;
 import android.util.Log;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
+import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
     private EditText inputEditText;
+    private TextView resultTextView;
     private Calculator calculator;
 
     @Override
@@ -29,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.landscape);
         }
         inputEditText = findViewById(R.id.inputEditText);
+        resultTextView = findViewById(R.id.resultText);
 
         setButtonClickListeners();
 
-         calculator = new Calculator(this);
+        calculator = new Calculator(this);
 
     }
 
@@ -69,9 +78,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Define the operator buttons
-        int[] operatorButtonIds = {R.id.btnPlus, R.id.btnMinus, R.id.btnMulitply, R.id.btnDevide};
 
-        for (int operatorButtonId : operatorButtonIds) {
+        // Get the basic operator button IDs
+        int[] operatorButtonIds = {R.id.btnPlus, R.id.btnMinus, R.id.btnMulitply, R.id.btnDivide, R.id.btnPercent, R.id.btnDot};
+
+// Check if the advanced operator buttons are available
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            int[] advancedButtonIds = { R.id.btnSin, R.id.btnCos, R.id.btnTan, R.id.btnLn, R.id.btnLeftParentheses, R.id.btnRightParentheses, R.id.btnSqrt, R.id.btnPi};
+
+            // Append the advanced operator button IDs to the basic ones
+            operatorButtonIds = Arrays.copyOf(operatorButtonIds, operatorButtonIds.length + advancedButtonIds.length);
+            System.arraycopy(advancedButtonIds, 0, operatorButtonIds, operatorButtonIds.length - advancedButtonIds.length, advancedButtonIds.length);
+
+        }
+            for (int operatorButtonId : operatorButtonIds) {
             Button operatorButton = findViewById(operatorButtonId);
             operatorButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -109,10 +129,12 @@ public class MainActivity extends AppCompatActivity {
         Calculator.expression = inputEditText.getText().toString();
 
         // Clear the inputEditText
-        inputEditText.getText().clear();
+        // inputEditText.getText().clear();
         // Append the result to the inputEditText
-        inputEditText.append(calculator.calculateResult());
-
+        double result = calculator.calculateResult();
+        DecimalFormat decimalFormat = new DecimalFormat("#.######"); // Only 6 digits after decimal point
+        String formattedResult = decimalFormat.format(result);
+        resultTextView.setText(formattedResult);
     }
 
 }

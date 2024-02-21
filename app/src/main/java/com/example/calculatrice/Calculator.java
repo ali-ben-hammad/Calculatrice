@@ -1,7 +1,13 @@
 package com.example.calculatrice;
 
 import android.content.Context;
+import android.os.RemoteException;
+import android.service.carrier.CarrierMessagingService;
+import android.util.Log;
 import android.webkit.ValueCallback;
+import android.webkit.WebView;
+
+import org.mariuszgromada.math.mxparser.Expression;
 
 public class Calculator {
 
@@ -24,14 +30,11 @@ public class Calculator {
         result = "";
     }
 
-    public String calculateResult() {
-        android.webkit.WebView webView = new android.webkit.WebView(context);
-        webView.evaluateJavascript("eval(" + expression + ")", new ValueCallback<String>() {
-            @Override
-            public void onReceiveValue(String s) {
-                result = s;
-            }
-        });
-        return result;
+    public double calculateResult() {
+        Expression expr = new Expression(expression);
+        return expr.calculate();
     }
+
+    // Define an interface for the ResultCallback
+
 }
