@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.service.carrier.CarrierMessagingService;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.landscape);
         }
         inputEditText = findViewById(R.id.inputEditText);
+        inputEditText.requestFocus();
+        //remove the keyboard
+        inputEditText.setShowSoftInputOnFocus(false);
+
         resultTextView = findViewById(R.id.resultText);
 
         setButtonClickListeners();
@@ -45,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
         calculator = new Calculator(this);
 
     }
+        private void updateText(String strToAdd){
+            String oldStr = inputEditText.getText().toString();
+            int cursorPos = inputEditText.getSelectionStart();
+            String leftStr = oldStr.substring(0, cursorPos);
+            String rightStr = oldStr.substring(cursorPos);
+            inputEditText.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr));
+            inputEditText.setSelection(cursorPos + strToAdd.length());
+        }
 
     private void setButtonClickListeners() {
 
@@ -70,9 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-                    // Append the clicked number to the inputEditText
-                    Button button = (Button) v;
-                    inputEditText.append(button.getText().toString());
+                    // Get the current cursor position
+                   updateText(((Button) v).getText().toString());
                 }
             });
         }
@@ -96,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
             operatorButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Append the clicked operator to the inputEditText
-                    Button button = (Button) v;
-                    inputEditText.append(button.getText());
+                    // Get the current cursor position
+                    updateText(((Button) v).getText().toString());
                 }
             });
         }
@@ -132,10 +143,14 @@ public class MainActivity extends AppCompatActivity {
                 // Get the current input string
                 String currentInput = inputEditText.getText().toString();
 
-                // If the input string is not empty, remove the last character
+                // If the input string is not empty, remove the character at the current cursor position
                 if (!TextUtils.isEmpty(currentInput)) {
-                    String newInput = currentInput.substring(0, currentInput.length() - 1);
-                    inputEditText.setText(newInput);
+                    int cursorPos = inputEditText.getSelectionStart();
+                    if (cursorPos > 0) {
+                        String newInput = currentInput.substring(0, cursorPos - 1) + currentInput.substring(cursorPos);
+                        inputEditText.setText(newInput);
+                        inputEditText.setSelection(cursorPos - 1);
+                    }
                 }
             }
         });
@@ -144,14 +159,14 @@ public class MainActivity extends AppCompatActivity {
     private void calculate() {
         Calculator.expression = inputEditText.getText().toString();
 
-        double result = calculator.calculateResult();
-        if (Double.isNaN(result)) {
+        String result = calculator.calculateResult();
+        if (Double.isNaN(Double.parseDouble(result))) {
             resultTextView.setText("Error");
             return;
         }
-        DecimalFormat decimalFormat = new DecimalFormat("#.#########"); // Only 6 digits after decimal point
-        String formattedResult = decimalFormat.format(result);
-        resultTextView.setText(formattedResult);
+      //  DecimalFormat decimalFormat = new DecimalFormat("#.#########"); // Only 6 digits after decimal point
+        //String formattedResult = decimalFormat.format(Double.parseDouble(result));
+        resultTextView.setText(result);
     }
 
 }

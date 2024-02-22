@@ -30,9 +30,15 @@ public class Calculator {
         result = "";
     }
 
-    public double calculateResult() {
+    public String calculateResult() {
         Expression expr = new Expression(expression);
-        return expr.calculate();
+        double result = expr.calculate();
+
+        if (result > 1e9) {
+            return String.format("%.2E", result);
+        } else {
+            return String.valueOf(result);
+        }
     }
 
 }
