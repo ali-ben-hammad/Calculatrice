@@ -319,10 +319,28 @@
         android:layout_row="3"
       
         android:layout_column="5"
-        android:layout_columnSpan="2"
+        android:layout_columnSpan="1"
         android:layout_columnWeight="1"
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
         android:text="=" />
+
+    <android.widget.Button
+        android:id="@+id/btnDel"
+        style="@style/button_n"
+
+        android:layout_row="3"
+
+        android:gravity="center_horizontal"
+        android:layout_column="6"
+        android:drawableEnd="@drawable/delete"
+   android:paddingHorizontal="20dp"
+
+
+        android:layout_columnSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:onClick="onButtonClick"
+         />
 
 </GridLayout>

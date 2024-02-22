@@ -35,6 +35,4 @@ public class Calculator {
         return expr.calculate();
     }
 
-    // Define an interface for the ResultCallback
-
 }

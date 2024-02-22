@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.service.carrier.CarrierMessagingService;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.ValueCallback;
@@ -79,18 +80,18 @@ public class MainActivity extends AppCompatActivity {
         // Define the operator buttons
 
         // Get the basic operator button IDs
-        int[] operatorButtonIds = {R.id.btnPlus, R.id.btnMinus, R.id.btnMulitply, R.id.btnDivide, R.id.btnPercent, R.id.btnDot};
+        int[] operatorButtonIds = {R.id.btnPlus, R.id.btnMinus, R.id.btnMulitply, R.id.btnDivide, R.id.btnPercent, R.id.btnDot, R.id.btnDel};
 
 // Check if the advanced operator buttons are available
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            int[] advancedButtonIds = { R.id.btnSin, R.id.btnCos, R.id.btnTan, R.id.btnLn, R.id.btnLeftParentheses, R.id.btnRightParentheses, R.id.btnSqrt, R.id.btnPi};
+            int[] advancedButtonIds = {R.id.btnSin, R.id.btnCos, R.id.btnTan, R.id.btnLn, R.id.btnLeftParentheses, R.id.btnRightParentheses, R.id.btnSqrt, R.id.btnPi};
 
             // Append the advanced operator button IDs to the basic ones
             operatorButtonIds = Arrays.copyOf(operatorButtonIds, operatorButtonIds.length + advancedButtonIds.length);
             System.arraycopy(advancedButtonIds, 0, operatorButtonIds, operatorButtonIds.length - advancedButtonIds.length, advancedButtonIds.length);
 
         }
-            for (int operatorButtonId : operatorButtonIds) {
+        for (int operatorButtonId : operatorButtonIds) {
             Button operatorButton = findViewById(operatorButtonId);
             operatorButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -123,16 +124,28 @@ public class MainActivity extends AppCompatActivity {
                 resultTextView.setText("0");
             }
         });
+        // Set an OnClickListener to the delete button that calls a new method
+        Button btnDel = findViewById(R.id.btnDel);
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the current input string
+                String currentInput = inputEditText.getText().toString();
+
+                // If the input string is not empty, remove the last character
+                if (!TextUtils.isEmpty(currentInput)) {
+                    String newInput = currentInput.substring(0, currentInput.length() - 1);
+                    inputEditText.setText(newInput);
+                }
+            }
+        });
     }
 
     private void calculate() {
-        // Get the expression from the inputEditText
         Calculator.expression = inputEditText.getText().toString();
-        // Clear the inputEditText
-        // inputEditText.getText().clear();
-        // Append the result to the inputEditText
+
         double result = calculator.calculateResult();
-        if(Double.isNaN(result)) {
+        if (Double.isNaN(result)) {
             resultTextView.setText("Error");
             return;
         }
